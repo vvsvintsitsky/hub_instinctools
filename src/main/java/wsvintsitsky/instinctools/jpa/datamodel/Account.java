@@ -1,9 +1,11 @@
 package wsvintsitsky.instinctools.jpa.datamodel;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Account extends AbstractModel {
 
 	@ManyToOne(targetEntity = Client.class, fetch = FetchType.LAZY)
