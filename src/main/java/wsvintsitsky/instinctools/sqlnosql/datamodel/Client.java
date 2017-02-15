@@ -2,6 +2,8 @@ package wsvintsitsky.instinctools.sqlnosql.datamodel;
 
 import java.util.List;
 
+import wsvintsitsky.instinctools.pattern.memento.Memento;
+
 public class Client extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
@@ -13,7 +15,7 @@ public class Client extends AbstractModel {
 	private String password;
 	
 	private List<Book> books;
-
+	
 	public String getName() {
 		return name;
 	}
@@ -44,5 +46,24 @@ public class Client extends AbstractModel {
 
 	public void setBooks(List<Book> books) {
 		this.books = books;
+	}
+
+	public Memento getClientMemento() {
+		return new ClientNameChangingMeneto(name);
+	}
+
+	public void setClientMemento(Memento clientMemento) {
+		if(clientMemento instanceof ClientNameChangingMeneto) {
+			this.name = ((ClientNameChangingMeneto) clientMemento).name;
+		}
+	}
+	
+	private class ClientNameChangingMeneto implements Memento {
+		private String name;
+
+		public ClientNameChangingMeneto(String name) {
+			super();
+			this.name = name;
+		}
 	}
 }
