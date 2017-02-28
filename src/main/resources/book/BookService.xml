@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="BookService"
+		class="wsvintsitsky.instinctools.service.impl.XmlBookServiceImpl"
+		factory-method="getInstance" init-method="init" destroy-method="destroy">
+		<constructor-arg type="wsvintsitsky.instinctools.service.ClientService" ref="ClientService"/>
+	</bean>
+
+</beans>

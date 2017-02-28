@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<import resource="book/BookService.xml"/>
+	<import resource="client/ClientService.xml"/>
+	<import resource="registration/RegistrationService.xml"/>
+	<import resource="serviceFactory/RegistrationServiceFactory.xml"/>
+	<import resource="serviceFactory/UndefinedServiceFactory.xml"/>
+	<import resource="undefined/UndefinedService.xml"/>
+	
+</beans>
