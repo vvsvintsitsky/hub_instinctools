@@ -47,7 +47,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 		document.put("id", objectId.getTime());
 		document.put("name", entity.getName());
 		Client client = entity.getClient();
-		if(client == null) {
+		if (client == null) {
 			document.put("client_id", null);
 		} else {
 			document.put("client_id", client.getId());
@@ -68,12 +68,12 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 		newDocument.put("id", new ObjectId().getTime());
 		newDocument.put("name", entity.getName());
 		Client client = entity.getClient();
-		if(client == null) {
+		if (client == null) {
 			newDocument.put("client_id", null);
 		} else {
 			newDocument.put("client_id", client.getId());
 		}
-		
+
 		BasicDBObject updateObj = new BasicDBObject();
 		updateObj.put("$set", newDocument);
 
@@ -106,7 +106,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 			book.setId((Long) result.get("id"));
 			book.setName((String) result.get("name"));
 			Long clientId = (Long) result.get("client_id");
-			if(clientId != null) {
+			if (clientId != null) {
 				Client client = new Client();
 				client.setId(clientId);
 				book.setClient(client);

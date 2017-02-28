@@ -7,7 +7,7 @@ import wsvintsitsky.instinctools.service.ClientService;
 public class XmlBookServiceImpl implements BookService {
 
 	private ClientService clientService;
-	
+
 	@Override
 	public Book findBook(Long id) {
 		// TODO Auto-generated method stub
@@ -31,11 +31,11 @@ public class XmlBookServiceImpl implements BookService {
 	public void init() {
 		System.out.println(this.getClass().getSimpleName() + " initialized");
 	}
-	
+
 	public void destroy() {
 		System.out.println(this.getClass().getSimpleName() + " destroyed");
 	}
-	
+
 	public static BookService getInstance(ClientService clientService) {
 		XmlBookServiceImpl xmlBookServiceImpl = new XmlBookServiceImpl();
 		xmlBookServiceImpl.setClientService(clientService);

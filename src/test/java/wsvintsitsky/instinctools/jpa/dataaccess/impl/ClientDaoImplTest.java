@@ -8,14 +8,14 @@ import wsvintsitsky.instinctools.jpa.datamodel.Client;
 public class ClientDaoImplTest extends TestCase {
 
 	public static Test suite() {
-        return new TestSuite(ClientDaoImplTest.class);
-    }
-	
+		return new TestSuite(ClientDaoImplTest.class);
+	}
+
 	public void testEntityManagerCreation() {
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		assertNotNull(clientDaoImpl.getEntityManager());
 	}
-	
+
 	public void testInsert() {
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Client client = new Client();
@@ -23,7 +23,7 @@ public class ClientDaoImplTest extends TestCase {
 		assertNotNull(client);
 		assertNotNull(client.getId());
 	}
-	
+
 	public void testFind() {
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Client client = new Client();
@@ -33,7 +33,7 @@ public class ClientDaoImplTest extends TestCase {
 		assertNotNull(result);
 		assertEquals(client, result);
 	}
-	
+
 	public void testUpdate() {
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Client client = new Client();
@@ -44,7 +44,7 @@ public class ClientDaoImplTest extends TestCase {
 		client = clientDaoImpl.find(result.getId());
 		assertEquals(client, result);
 	}
-	
+
 	public void testDelete() {
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Long id = clientDaoImpl.insert(new Client()).getId();

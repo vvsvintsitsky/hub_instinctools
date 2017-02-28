@@ -7,9 +7,9 @@ import wsvintsitsky.instinctools.service.RegistrationService;
 public class XmlRegistrationServiceImpl implements RegistrationService {
 
 	private String username;
-	
+
 	private ClientService clientService;
-	
+
 	public XmlRegistrationServiceImpl(ClientService clientService) {
 		super();
 		this.clientService = clientService;

@@ -7,11 +7,11 @@ import wsvintsitsky.instinctools.service.locator.UndefinedServiceFactory;
 public class XmlUndefinedServiceFactoryImpl implements UndefinedServiceFactory {
 
 	private RegistrationServiceFactory registrationServiceFactory;
-	
+
 	public XmlUndefinedServiceFactoryImpl(RegistrationServiceFactory registrationServiceFactory) {
 		this.registrationServiceFactory = registrationServiceFactory;
 	}
-	
+
 	@Override
 	public UndefinedService getInstance() {
 		XmlUndefinedServiceImpl xmlUndefinedServiceImpl = new XmlUndefinedServiceImpl();

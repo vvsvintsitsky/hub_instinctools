@@ -13,7 +13,7 @@ public class NoSQLDataSource {
 
 	private static NoSQLDataSource noSQLDataSource;
 	private static ReentrantLock lock = new ReentrantLock();
-	
+
 	private String host;
 	private Integer port;
 	private String databaseName;
@@ -44,7 +44,7 @@ public class NoSQLDataSource {
 	public void setDatabaseName(String databaseName) {
 		this.databaseName = databaseName;
 	}
-	
+
 	public DB getConnection() throws UnknownHostException {
 		MongoClient mongoClient = new MongoClient(host, port);
 		return mongoClient.getDB(databaseName);
@@ -66,5 +66,3 @@ public class NoSQLDataSource {
 		return noSQLDataSource;
 	}
 }
-
-

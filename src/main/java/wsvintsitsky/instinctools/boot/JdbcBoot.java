@@ -3,10 +3,10 @@ package wsvintsitsky.instinctools.boot;
 import java.util.ResourceBundle;
 
 import wsvintsitsky.instinctools.config.ConfigManager;
-import wsvintsitsky.instinctools.sqlnosql.dataaccess.ClientDao;
-import wsvintsitsky.instinctools.sqlnosql.dataaccess.jdbc.impl.ClientDaoImpl;
-import wsvintsitsky.instinctools.sqlnosql.datamodel.Client;
-import wsvintsitsky.instinctools.sqlnosql.datamodel.util.SchemaNameAwareBasicDataSource;
+import wsvintsitsky.instinctools.dataaccess.ClientDao;
+import wsvintsitsky.instinctools.dataaccess.sqlnosql.jdbc.impl.ClientDaoImpl;
+import wsvintsitsky.instinctools.datamodel.sqlnosql.Client;
+import wsvintsitsky.instinctools.datamodel.sqlnosql.util.SchemaNameAwareBasicDataSource;
 
 public class JdbcBoot implements IBoot {
 
@@ -19,20 +19,20 @@ public class JdbcBoot implements IBoot {
 		dataSource.setUsername(configBundle.getString("jdbc.username"));
 		dataSource.setPassword(configBundle.getString("jdbc.password"));
 		dataSource.setSchema(configBundle.getString("jdbc.schema"));
-		
+
 		ClientDao clientDao = new ClientDaoImpl(dataSource);
-		
+
 		Client client = new Client();
 		client.setName("name");
 		client.setEmail("email");
 		client.setPassword("password");
-		
+
 		try {
 			clientDao.insert(client);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(client.getId());
 	}
 }

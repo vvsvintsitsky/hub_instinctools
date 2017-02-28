@@ -21,7 +21,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 	private static final String DELETE_BOOK = "DELETE FROM book WHERE id = ?";
 	private static final String FIND_ALL = "SELECT * FROM book";
 	private static final String FIND_FREE_BOOKS = "SELECT * FROM book WHERE book.client_id = NULL";
-	
+
 	public BookDaoImpl(DataSource dataSource) {
 		super(dataSource);
 	}
@@ -43,7 +43,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 				book = new Book();
 				book.setId(bookId);
 				book.setName(name);
-				if(clientId != null) {
+				if (clientId != null) {
 					Client client = new Client();
 					client.setId(clientId);
 					book.setClient(client);
@@ -65,7 +65,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 			connection = getDataSource().getConnection();
 			ps = connection.prepareStatement(INSERT_BOOK, new String[] { "id" });
 			ps.setString(1, entity.getName());
-			if(entity.getClient() != null) {
+			if (entity.getClient() != null) {
 				ps.setLong(2, entity.getClient().getId());
 			}
 			ps.executeUpdate();
@@ -89,7 +89,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 			connection = getDataSource().getConnection();
 			ps = connection.prepareStatement(UPDATE_BOOK);
 			ps.setString(1, entity.getName());
-			if(entity.getClient() != null) {
+			if (entity.getClient() != null) {
 				ps.setLong(2, entity.getClient().getId());
 			}
 			ps.executeUpdate();
@@ -116,7 +116,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 			closeConnectionAndStatement(connection, ps);
 		}
 	}
-	
+
 	@Override
 	public List<Book> findAll() throws SQLException {
 		return findByQuery(FIND_ALL);
@@ -144,7 +144,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 				book = new Book();
 				book.setId(bookId);
 				book.setName(name);
-				if(clientId != null) {
+				if (clientId != null) {
 					Client client = new Client();
 					client.setId(clientId);
 					book.setClient(client);

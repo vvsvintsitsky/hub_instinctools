@@ -1,7 +1,7 @@
 package wsvintsitsky.instinctools.pattern.chain;
 
 public class ProcessInputOperation extends ChainNode {
-	
+
 	public ProcessInputOperation(ChainNode chainNode) {
 		super(chainNode);
 	}

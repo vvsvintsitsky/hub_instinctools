@@ -1,7 +1,7 @@
 package wsvintsitsky.instinctools.pattern.chain;
 
 public class ChangeNameOperation extends ChainNode {
-	
+
 	public ChangeNameOperation(ChainNode chainNode) {
 		super(chainNode);
 	}

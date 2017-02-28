@@ -11,7 +11,7 @@ import wsvintsitsky.instinctools.service.ClientService;
 public class BookServiceImpl implements BookService {
 
 	protected ClientService clientService;
-	
+
 	@Autowired
 	public void setClientService(ClientService clientService) {
 		this.clientService = clientService;

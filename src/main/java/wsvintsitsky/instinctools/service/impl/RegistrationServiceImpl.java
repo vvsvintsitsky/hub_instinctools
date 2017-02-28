@@ -16,11 +16,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 
 	@Value("${registration.email}")
 	public String hostEmail;
-	
+
 	@Autowired
 	@Qualifier("annotationClientService")
 	private ClientService clientService;
-	
+
 	public RegistrationServiceImpl(ClientService clientService) {
 		super();
 		this.clientService = clientService;

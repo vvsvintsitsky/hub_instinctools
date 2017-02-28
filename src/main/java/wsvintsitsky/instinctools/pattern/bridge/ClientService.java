@@ -1,7 +1,7 @@
 package wsvintsitsky.instinctools.pattern.bridge;
 
 public class ClientService extends Service {
-	
+
 	public ClientService(Action action) {
 		super(action);
 	}

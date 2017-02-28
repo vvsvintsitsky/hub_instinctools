@@ -7,7 +7,7 @@ import wsvintsitsky.instinctools.service.ClientService;
 public class XmlClientServiceImpl implements ClientService {
 
 	private BookService bookService;
-	
+
 	@Override
 	public Client findClient(Long id) {
 		// TODO Auto-generated method stub

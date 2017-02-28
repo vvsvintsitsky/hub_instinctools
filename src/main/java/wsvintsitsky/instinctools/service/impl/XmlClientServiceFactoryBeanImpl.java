@@ -7,7 +7,7 @@ import wsvintsitsky.instinctools.service.ClientServiceFactoryBean;
 public class XmlClientServiceFactoryBeanImpl implements ClientServiceFactoryBean {
 
 	private BookService bookService;
-	
+
 	public BookService getBookService() {
 		return bookService;
 	}

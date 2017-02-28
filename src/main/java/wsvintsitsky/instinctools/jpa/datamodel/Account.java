@@ -10,7 +10,7 @@ public class Account extends AbstractModel {
 
 	@ManyToOne(targetEntity = Client.class, fetch = FetchType.LAZY)
 	private Client client;
-	
+
 	@Column
 	private String name;
 

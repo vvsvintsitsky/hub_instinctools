@@ -31,10 +31,10 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 		while (cursor.hasNext()) {
 			DBObject result = cursor.next();
 			client = new Client();
-			client.setId((Long)result.get("id"));
-			client.setName((String)result.get("name"));
-			client.setEmail((String)result.get("email"));
-			client.setPassword((String)result.get("password"));
+			client.setId((Long) result.get("id"));
+			client.setName((String) result.get("name"));
+			client.setEmail((String) result.get("email"));
+			client.setPassword((String) result.get("password"));
 		}
 		return client;
 	}
@@ -56,7 +56,7 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 	@Override
 	public Client update(Client entity) throws Exception {
 		DBCollection table = getDatabase().getCollection(Client.class.getSimpleName());
-		
+
 		BasicDBObject query = new BasicDBObject();
 		query.put("id", entity.getId());
 
@@ -68,9 +68,9 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 
 		BasicDBObject updateObj = new BasicDBObject();
 		updateObj.put("$set", newDocument);
-		
+
 		table.update(query, updateObj);
-		
+
 		return entity;
 	}
 

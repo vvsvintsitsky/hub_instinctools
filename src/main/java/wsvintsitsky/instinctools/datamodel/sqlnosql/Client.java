@@ -9,13 +9,13 @@ public class Client extends AbstractModel {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	
+
 	private String email;
-	
+
 	private String password;
-	
+
 	private List<Book> books;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -49,19 +49,19 @@ public class Client extends AbstractModel {
 	}
 
 	public Memento getClientMemento() {
-		return new ClientNameChangingMeneto(name);
+		return new ClientNameChangingMemento(name);
 	}
 
 	public void setClientMemento(Memento clientMemento) {
-		if(clientMemento instanceof ClientNameChangingMeneto) {
-			this.name = ((ClientNameChangingMeneto) clientMemento).name;
+		if (clientMemento instanceof ClientNameChangingMemento) {
+			this.name = ((ClientNameChangingMemento) clientMemento).name;
 		}
 	}
-	
-	private class ClientNameChangingMeneto implements Memento {
+
+	private class ClientNameChangingMemento implements Memento {
 		private String name;
 
-		public ClientNameChangingMeneto(String name) {
+		public ClientNameChangingMemento(String name) {
 			super();
 			this.name = name;
 		}

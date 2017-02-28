@@ -16,7 +16,7 @@ public class ClientServiceImpl implements ClientService {
 	public ClientServiceImpl(BookService bookService) {
 		this.bookService = bookService;
 	}
-	
+
 	@Override
 	public Client findClient(Long id) {
 		// TODO Auto-generated method stub
