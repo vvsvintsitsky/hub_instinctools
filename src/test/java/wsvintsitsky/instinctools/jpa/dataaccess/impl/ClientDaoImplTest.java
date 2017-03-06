@@ -30,6 +30,7 @@ public class ClientDaoImplTest extends TestCase {
 		client = clientDaoImpl.insert(client);
 		assertNotNull(client.getId());
 		Client result = clientDaoImpl.find(client.getId());
+		result.setAccounts(null);
 		assertNotNull(result);
 		assertEquals(client, result);
 	}
@@ -42,6 +43,7 @@ public class ClientDaoImplTest extends TestCase {
 		assertNotNull(result);
 		assertEquals(client, result);
 		client = clientDaoImpl.find(result.getId());
+		client.setAccounts(null);
 		assertEquals(client, result);
 	}
 

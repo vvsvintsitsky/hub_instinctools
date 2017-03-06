@@ -9,4 +9,6 @@ public interface AbstractDao<T, ID> {
 	T update(T entity) throws Exception;
 
 	void delete(ID id) throws Exception;
+	
+	void deleteAll() throws Exception;
 }

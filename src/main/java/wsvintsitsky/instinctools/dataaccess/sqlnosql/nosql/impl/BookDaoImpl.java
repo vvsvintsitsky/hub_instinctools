@@ -135,4 +135,10 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 		return books;
 	}
 
+	@Override
+	public void deleteAll() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

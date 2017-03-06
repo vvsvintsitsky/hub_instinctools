@@ -10,7 +10,7 @@ import org.springframework.util.Assert;
 import wsvintsitsky.instinctools.service.UndefinedService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:service-context.xml" })
+@ContextConfiguration(locations = { "classpath:service-context-test.xml" })
 public class XmlUndefinedServiceTest {
 
 	@Autowired

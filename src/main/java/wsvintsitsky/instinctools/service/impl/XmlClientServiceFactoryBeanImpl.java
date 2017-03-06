@@ -1,25 +1,21 @@
 package wsvintsitsky.instinctools.service.impl;
 
-import wsvintsitsky.instinctools.service.BookService;
+import wsvintsitsky.instinctools.dataaccess.ClientDao;
 import wsvintsitsky.instinctools.service.ClientService;
 import wsvintsitsky.instinctools.service.ClientServiceFactoryBean;
 
 public class XmlClientServiceFactoryBeanImpl implements ClientServiceFactoryBean {
 
-	private BookService bookService;
+	private ClientDao clientDao;
 
-	public BookService getBookService() {
-		return bookService;
-	}
-
-	public void setBookService(BookService bookService) {
-		this.bookService = bookService;
+	public void setClientDao(ClientDao clientDao) {
+		this.clientDao = clientDao;
 	}
 
 	@Override
 	public ClientService getObject() throws Exception {
 		XmlClientServiceImpl xmlClientServiceImpl = new XmlClientServiceImpl();
-		xmlClientServiceImpl.setBookService(bookService);
+		xmlClientServiceImpl.setClientDao(clientDao);
 		return xmlClientServiceImpl;
 	}
 

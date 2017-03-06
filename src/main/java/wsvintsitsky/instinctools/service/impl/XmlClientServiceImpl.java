@@ -1,31 +1,51 @@
 package wsvintsitsky.instinctools.service.impl;
 
+import wsvintsitsky.instinctools.dataaccess.ClientDao;
 import wsvintsitsky.instinctools.datamodel.sqlnosql.Client;
-import wsvintsitsky.instinctools.service.BookService;
 import wsvintsitsky.instinctools.service.ClientService;
 
 public class XmlClientServiceImpl implements ClientService {
 
-	private BookService bookService;
+	private ClientDao clientDao;
 
 	@Override
 	public Client findClient(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Client client = null;
+		try {
+			client = clientDao.find(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return client;
 	}
 
 	@Override
 	public Client saveOrUpdate(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			if (client.getId() == null) {
+				client = clientDao.insert(client);
+			} else {
+				client = clientDao.update(client);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return client;
 	}
 
-	public BookService getBookService() {
-		return bookService;
+	@Override
+	public void deleteClient(Long id) {
+		try {
+			clientDao.delete(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
-	public void setBookService(BookService bookService) {
-		this.bookService = bookService;
+	
+	public void setClientDao(ClientDao clientDao) {
+		this.clientDao = clientDao;
 	}
 
 }

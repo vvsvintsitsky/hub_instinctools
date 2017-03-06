@@ -16,7 +16,8 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 	private static final String INSERT_CLIENT = "INSERT INTO client (name, email, password) VALUES (?, ?, ?)";
 	private static final String UPDATE_CLIENT = "UPDATE client SET name = ?, email = ?, password = ? WHERE id = ?";
 	private static final String DELETE_CLIENT = "DELETE FROM client WHERE id = ?";
-
+	private static final String DELETE_ALL_CLIENTS = "DELETE FROM client";
+	
 	public ClientDaoImpl(DataSource dataSource) {
 		super(dataSource);
 	}
@@ -70,7 +71,7 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 		} finally {
 			closeConnectionAndStatement(connection, ps);
 		}
-		return null;
+		return entity;
 	}
 
 	@Override
@@ -110,6 +111,21 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 			connection = getDataSource().getConnection();
 			ps = connection.prepareStatement(DELETE_CLIENT);
 			ps.setLong(1, id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			closeConnectionAndStatement(connection, ps);
+		}
+	}
+	
+	@Override
+	public void deleteAll() throws SQLException {
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = getDataSource().getConnection();
+			ps = connection.prepareStatement(DELETE_ALL_CLIENTS);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

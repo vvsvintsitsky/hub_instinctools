@@ -19,6 +19,7 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 	private static final String INSERT_BOOK = "INSERT INTO book (name, client_id) VALUES (?, ?)";
 	private static final String UPDATE_BOOK = "UPDATE book SET name = ?, client_id = ? WHERE id = ?";
 	private static final String DELETE_BOOK = "DELETE FROM book WHERE id = ?";
+	private static final String DELETE_ALL_BOOKS = "DELETE FROM book";
 	private static final String FIND_ALL = "SELECT * FROM book";
 	private static final String FIND_FREE_BOOKS = "SELECT * FROM book WHERE book.client_id = NULL";
 
@@ -67,6 +68,8 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 			ps.setString(1, entity.getName());
 			if (entity.getClient() != null) {
 				ps.setLong(2, entity.getClient().getId());
+			} else {
+				ps.setNull(2, java.sql.Types.INTEGER);
 			}
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
@@ -109,6 +112,21 @@ public class BookDaoImpl extends AbstractDaoImpl<Book, Long> implements BookDao 
 			connection = getDataSource().getConnection();
 			ps = connection.prepareStatement(DELETE_BOOK);
 			ps.setLong(1, id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			closeConnectionAndStatement(connection, ps);
+		}
+	}
+	
+	@Override
+	public void deleteAll() throws SQLException {
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = getDataSource().getConnection();
+			ps = connection.prepareStatement(DELETE_ALL_BOOKS);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

@@ -1,5 +1,7 @@
 package wsvintsitsky.instinctools.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,24 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book saveOrUpdate(Book book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteBook(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Book> getAllBooks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Book> getFreeBooks() {
 		// TODO Auto-generated method stub
 		return null;
 	}

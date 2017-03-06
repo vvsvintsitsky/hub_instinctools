@@ -84,4 +84,10 @@ public class ClientDaoImpl extends AbstractDaoImpl<Client, Long> implements Clie
 		table.remove(searchQuery);
 	}
 
+	@Override
+	public void deleteAll() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -7,4 +7,6 @@ public interface ClientService {
 	public Client findClient(Long id);
 
 	public Client saveOrUpdate(Client client);
+	
+	public void deleteClient(Long id);
 }

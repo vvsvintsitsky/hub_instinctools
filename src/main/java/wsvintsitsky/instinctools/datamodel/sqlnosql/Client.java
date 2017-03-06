@@ -2,8 +2,13 @@ package wsvintsitsky.instinctools.datamodel.sqlnosql;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import wsvintsitsky.instinctools.pattern.memento.Memento;
 
+@XmlRootElement(name = "Client")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
@@ -48,11 +53,11 @@ public class Client extends AbstractModel {
 		this.books = books;
 	}
 
-	public Memento getClientMemento() {
+	public Memento generateMemento() {
 		return new ClientNameChangingMemento(name);
 	}
 
-	public void setClientMemento(Memento clientMemento) {
+	public void setMemento(Memento clientMemento) {
 		if (clientMemento instanceof ClientNameChangingMemento) {
 			this.name = ((ClientNameChangingMemento) clientMemento).name;
 		}

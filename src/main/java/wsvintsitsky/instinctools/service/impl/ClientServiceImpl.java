@@ -28,4 +28,10 @@ public class ClientServiceImpl implements ClientService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void deleteClient(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

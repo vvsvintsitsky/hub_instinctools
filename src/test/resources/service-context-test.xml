@@ -22,40 +22,19 @@
 		http://cxf.apache.org/jaxws
 		http://cxf.apache.org/schemas/jaxws.xsd">
 
-	<bean
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:/config.properties" />
+	<import resource="service-context.xml" />
+
+	<bean id="instinctoolsDataSource"
+		class="wsvintsitsky.instinctools.datamodel.sqlnosql.util.SchemaNameAwareBasicDataSource"
+		destroy-method="close">
+
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/library" />
+		<property name="username" value="postgres"></property>
+		<property name="password" value="7muCC" />
+		<property name="schema" value="test" />
+		<property name="maxIdle" value="20" />
+		<property name="minIdle" value="5"/>
+		<property name="maxOpenPreparedStatements" value="180"/>
 	</bean>
-
-	<import resource="datasource-list.xml" />
-	<import resource="bean-list.xml" />
-
-	<tx:annotation-driven />
-
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="instinctoolsDataSource" />
-	</bean>
-
-	<import resource="classpath:META-INF/cxf/cxf.xml" />
-	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-
-	<bean id="webBookService" class="wsvintsitsky.instinctools.soap.impl.WebBookServiceImpl">
-		<property name="bookService" ref="BookService"></property>
-	</bean>
-	<jaxws:endpoint id="soapBookService" implementor="#webBookService"
-		address="/service" />
-
-	<bean id="webClientService"
-		class="wsvintsitsky.instinctools.rest.impl.WebClientServiceImpl">
-		<property name="clientService" ref="ClientService"></property>
-	</bean>
-	<jaxrs:server id="clientservice" address="/clientservice">
-		<jaxrs:serviceBeans>
-			<ref bean="webClientService" />
-		</jaxrs:serviceBeans>
-		<jaxrs:providers>
-			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider" />
-		</jaxrs:providers>
-	</jaxrs:server>
 </beans>

@@ -1,5 +1,8 @@
 package wsvintsitsky.instinctools.datamodel.sqlnosql;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Book")
 public class Book extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
