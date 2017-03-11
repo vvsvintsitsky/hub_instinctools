@@ -44,7 +44,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Book> getFreeBooks() {
+	public List<Book> getBooksByClientId(Long clientId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

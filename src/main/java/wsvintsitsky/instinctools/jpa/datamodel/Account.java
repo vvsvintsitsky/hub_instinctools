@@ -8,18 +8,18 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Account extends AbstractModel {
 
-	@ManyToOne(targetEntity = Client.class, fetch = FetchType.LAZY)
-	private Client client;
+	@ManyToOne(targetEntity = Person.class, fetch = FetchType.LAZY)
+	private Person person;
 
 	@Column
 	private String name;
 
-	public Client getClient() {
-		return client;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 	public String getName() {
@@ -34,7 +34,7 @@ public class Account extends AbstractModel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((person == null) ? 0 : person.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -48,10 +48,10 @@ public class Account extends AbstractModel {
 		if (getClass() != obj.getClass())
 			return false;
 		Account other = (Account) obj;
-		if (client == null) {
-			if (other.client != null)
+		if (person == null) {
+			if (other.person != null)
 				return false;
-		} else if (!client.equals(other.client))
+		} else if (!person.equals(other.person))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -63,6 +63,6 @@ public class Account extends AbstractModel {
 
 	@Override
 	public String toString() {
-		return "Account [client=" + client.getId() + ", name=" + name + ", getId()=" + getId() + "]";
+		return "Account [person=" + person.getId() + ", name=" + name + ", getId()=" + getId() + "]";
 	}
 }

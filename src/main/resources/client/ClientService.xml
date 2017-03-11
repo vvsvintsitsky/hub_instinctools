@@ -5,6 +5,6 @@
 	
 	<bean id="ClientService"
 		class="wsvintsitsky.instinctools.service.impl.XmlClientServiceFactoryBeanImpl">
-		<property name="clientDao" ref="ClientDao" />
+		<property name="clientDao" ref="clientRepository" />
 	</bean>
 </beans>

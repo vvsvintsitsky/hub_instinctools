@@ -14,5 +14,5 @@ public interface BookService {
 	
 	public List<Book> getAllBooks();
 	
-	public List<Book> getFreeBooks();
+	public List<Book> getBooksByClientId(Long clientId);
 }

@@ -6,7 +6,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import wsvintsitsky.instinctools.jpa.datamodel.Account;
-import wsvintsitsky.instinctools.jpa.datamodel.Client;
+import wsvintsitsky.instinctools.jpa.datamodel.Person;
 
 public class AccountDaoImplTest extends TestCase {
 
@@ -23,9 +23,9 @@ public class AccountDaoImplTest extends TestCase {
 		AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Account account = new Account();
-		Client client = new Client();
+		Person client = new Person();
 		clientDaoImpl.insert(client);
-		account.setClient(client);
+		account.setPerson(client);
 		account.setName(new String("" + new Date().getTime()));
 		account = accountDaoImpl.insert(account);
 		assertNotNull(account);
@@ -36,16 +36,16 @@ public class AccountDaoImplTest extends TestCase {
 		AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Account account = new Account();
-		Client client = new Client();
+		Person client = new Person();
 		clientDaoImpl.insert(client);
-		account.setClient(client);
+		account.setPerson(client);
 		account.setName(new String("" + new Date().getTime()));
 		account = accountDaoImpl.insert(account);
 		assertNotNull(account.getId());
 		Account result = accountDaoImpl.find(account.getId());
 		assertNotNull(result);
-		account.setClient(null);
-		result.setClient(null);
+		account.setPerson(null);
+		result.setPerson(null);
 		assertEquals(account, result);
 	}
 
@@ -53,16 +53,16 @@ public class AccountDaoImplTest extends TestCase {
 		AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Account account = new Account();
-		Client client = new Client();
+		Person client = new Person();
 		clientDaoImpl.insert(client);
-		account.setClient(client);
+		account.setPerson(client);
 		account.setName(new String("" + new Date().getTime()));
 		account = accountDaoImpl.insert(account);
 		account.setName(new String("" + new Date().getTime()));
 		Account result = accountDaoImpl.update(account);
 		assertNotNull(result);
-		account.setClient(null);
-		result.setClient(null);
+		account.setPerson(null);
+		result.setPerson(null);
 		assertEquals(account, result);
 	}
 
@@ -70,9 +70,9 @@ public class AccountDaoImplTest extends TestCase {
 		AccountDaoImpl accountDaoImpl = new AccountDaoImpl();
 		ClientDaoImpl clientDaoImpl = new ClientDaoImpl();
 		Account account = new Account();
-		Client client = new Client();
+		Person client = new Person();
 		clientDaoImpl.insert(client);
-		account.setClient(client);
+		account.setPerson(client);
 		account.setName(new String("" + new Date().getTime()));
 		Long id = accountDaoImpl.insert(account).getId();
 		accountDaoImpl.delete(id);

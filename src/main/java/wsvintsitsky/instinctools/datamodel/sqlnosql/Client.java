@@ -2,6 +2,9 @@ package wsvintsitsky.instinctools.datamodel.sqlnosql;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -9,16 +12,21 @@ import wsvintsitsky.instinctools.pattern.memento.Memento;
 
 @XmlRootElement(name = "Client")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
 public class Client extends AbstractModel {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column
 	private String name;
 
+	@Column
 	private String email;
 
+	@Column
 	private String password;
 
+	@OneToMany(mappedBy = "client")
 	private List<Book> books;
 
 	public String getName() {

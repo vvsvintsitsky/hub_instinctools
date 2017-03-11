@@ -6,7 +6,7 @@
 	<bean id="BookService"
 		class="wsvintsitsky.instinctools.service.impl.XmlBookServiceImpl"
 		factory-method="getInstance" init-method="init" destroy-method="destroy">
-		<constructor-arg type="wsvintsitsky.instinctools.dataaccess.BookDao" ref="BookDao"/>
+		<constructor-arg type="wsvintsitsky.instinctools.dataaccess.spring_data.BookRepository" ref="bookRepository"/>
 	</bean>
 
 </beans>

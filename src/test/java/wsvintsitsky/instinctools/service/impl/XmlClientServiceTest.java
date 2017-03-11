@@ -8,8 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import wsvintsitsky.instinctools.dataaccess.BookDao;
-import wsvintsitsky.instinctools.dataaccess.ClientDao;
+import wsvintsitsky.instinctools.dataaccess.spring_data.BookRepository;
+import wsvintsitsky.instinctools.dataaccess.spring_data.ClientRepository;
 import wsvintsitsky.instinctools.service.ClientService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,10 +20,10 @@ public class XmlClientServiceTest {
 	private ClientService clientService;
 
 	@Autowired
-	private ClientDao clientDao;
+	private ClientRepository clientDao;
 	
 	@Autowired
-	private BookDao bookDao;
+	private BookRepository bookDao;
 	
 	@Before
 	public void wipeDB() throws Exception {

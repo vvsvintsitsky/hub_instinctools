@@ -26,5 +26,5 @@ public interface WebBookService {
 	List<Book> findAllBooks();
 	
 	@WebMethod
-	List<Book> findFreeBooks();
+	List<Book> getBooksByClientId(Long clientId);
 }

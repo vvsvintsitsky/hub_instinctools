@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Client extends AbstractModel {
+public class Person extends AbstractModel {
 
-	@OneToMany(mappedBy = "client")
+	@OneToMany(mappedBy = "person")
 	private List<Account> accounts;
 
 	public List<Account> getAccounts() {
@@ -35,7 +35,7 @@ public class Client extends AbstractModel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Client other = (Client) obj;
+		Person other = (Person) obj;
 		if (accounts == null) {
 			if (other.accounts != null)
 				return false;

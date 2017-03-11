@@ -4,9 +4,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<import resource="book/BookDao.xml"/>
-	<import resource="client/ClientDao.xml"/>
-
 	<import resource="book/BookService.xml"/>
 	<import resource="client/ClientService.xml"/>
 	<import resource="registration/RegistrationService.xml"/>

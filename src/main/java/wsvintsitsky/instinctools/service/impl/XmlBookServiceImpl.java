@@ -2,19 +2,19 @@ package wsvintsitsky.instinctools.service.impl;
 
 import java.util.List;
 
-import wsvintsitsky.instinctools.dataaccess.BookDao;
+import wsvintsitsky.instinctools.dataaccess.spring_data.BookRepository;
 import wsvintsitsky.instinctools.datamodel.sqlnosql.Book;
 import wsvintsitsky.instinctools.service.BookService;
 
 public class XmlBookServiceImpl implements BookService {
 
-	private BookDao bookDao;
-
+	private BookRepository bookDao;
+	
 	@Override
 	public Book findBook(Long id) {
 		Book book = null;
 		try {
-			book = bookDao.find(id);
+			book = bookDao.findOne(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -23,16 +23,7 @@ public class XmlBookServiceImpl implements BookService {
 
 	@Override
 	public Book saveOrUpdate(Book book) {
-		try {
-			if (book.getId() == null) {
-				book = bookDao.insert(book);
-			} else {
-				book = bookDao.update(book);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return book;
+		return bookDao.save(book);
 	}
 	
 	@Override
@@ -58,10 +49,10 @@ public class XmlBookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Book> getFreeBooks() {
+	public List<Book> getBooksByClientId(Long clientId) {
 		List<Book> books = null;
 		try {
-			books = bookDao.findFreeBooks();
+			books = bookDao.findByClient_Id(clientId);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,7 +60,7 @@ public class XmlBookServiceImpl implements BookService {
 		return books;
 	}
 
-	public void setBookDao(BookDao bookDao) {
+	public void setBookDao(BookRepository bookDao) {
 		this.bookDao = bookDao;
 	}
 
@@ -81,7 +72,7 @@ public class XmlBookServiceImpl implements BookService {
 		System.out.println(this.getClass().getSimpleName() + " destroyed");
 	}
 
-	public static BookService getInstance(BookDao bookDao) {
+	public static BookService getInstance(BookRepository bookDao) {
 		XmlBookServiceImpl xmlBookServiceImpl = new XmlBookServiceImpl();
 		xmlBookServiceImpl.setBookDao(bookDao);
 		return xmlBookServiceImpl;

@@ -1,7 +1,7 @@
 package wsvintsitsky.instinctools.jpa.dataaccess;
 
-import wsvintsitsky.instinctools.jpa.datamodel.Client;
+import wsvintsitsky.instinctools.jpa.datamodel.Person;
 
-public interface ClientDao extends AbstractDao<Client, Long> {
+public interface ClientDao extends AbstractDao<Person, Long> {
 
 }

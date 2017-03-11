@@ -1,14 +1,14 @@
 package wsvintsitsky.instinctools.service.impl;
 
-import wsvintsitsky.instinctools.dataaccess.ClientDao;
+import wsvintsitsky.instinctools.dataaccess.spring_data.ClientRepository;
 import wsvintsitsky.instinctools.service.ClientService;
 import wsvintsitsky.instinctools.service.ClientServiceFactoryBean;
 
 public class XmlClientServiceFactoryBeanImpl implements ClientServiceFactoryBean {
 
-	private ClientDao clientDao;
+	private ClientRepository clientDao;
 
-	public void setClientDao(ClientDao clientDao) {
+	public void setClientDao(ClientRepository clientDao) {
 		this.clientDao = clientDao;
 	}
 

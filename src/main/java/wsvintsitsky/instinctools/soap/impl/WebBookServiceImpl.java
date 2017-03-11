@@ -43,7 +43,7 @@ public class WebBookServiceImpl implements WebBookService {
 	}
 
 	@Override
-	public List<Book> findFreeBooks() {
-		return bookService.getFreeBooks();
+	public List<Book> getBooksByClientId(Long clientId) {
+		return bookService.getBooksByClientId(clientId);
 	}
 }
